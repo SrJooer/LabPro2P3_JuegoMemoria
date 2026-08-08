@@ -45,4 +45,23 @@ public interface PanelConstructor {
         return label;
     }
 
+    default ImageIcon getImagen(String ruta, int tamano) {
+        try {
+            java.net.URL url = getClass().getResource(ruta);
+
+            if (url == null) {
+                throw new Exception("No se encontro la imagen: " + ruta);
+            }
+
+            ImageIcon original = new ImageIcon(url);
+            Image escalada = original.getImage().getScaledInstance(tamano, tamano, Image.SCALE_SMOOTH);
+
+            return new ImageIcon(escalada);
+
+        } catch (Exception e) {
+            System.out.println("Error al cargar imagen: " + e.getMessage());
+            return null;
+        }
+    }
+
 }

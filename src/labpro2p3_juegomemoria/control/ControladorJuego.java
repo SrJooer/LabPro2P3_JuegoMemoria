@@ -87,6 +87,23 @@ public class ControladorJuego implements LogicaJuego, GestorTurnos {
     }
 
     @Override
+    public String finalizarPartida() {
+
+        if (jugador1.getAciertos() > jugador2.getAciertos()) {
+            return "Gano " + jugador1.getNombre()
+                    + " con " + jugador1.getAciertos() + " aciertos.";
+        }
+
+        if (jugador2.getAciertos() > jugador1.getAciertos()) {
+            return "Gano " + jugador2.getNombre()
+                    + " con " + jugador2.getAciertos() + " aciertos.";
+        }
+
+        return "Empate. Ambos jugadores lograron "
+                + jugador1.getAciertos() + " aciertos.";
+    }
+
+    @Override
     public void CambiarTurno() {
 
         if (jugadorActual == 1) {
@@ -101,6 +118,7 @@ public class ControladorJuego implements LogicaJuego, GestorTurnos {
         return jugadorActual;
     }
 
+    @Override
     public Jugador obtenerJugadorActual() {
 
         if (jugadorActual == 1) {
@@ -118,6 +136,7 @@ public class ControladorJuego implements LogicaJuego, GestorTurnos {
         return jugador2;
     }
 
+    @Override
     public Tablero getTablero() {
         return tablero;
     }

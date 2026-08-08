@@ -14,8 +14,8 @@ public class Tablero {
         "pikachu", "charmander", "bulbasaur", "litleo",
         "eevee", "squirtle", "snorlax", "jigglypuff",
         "dragonite", "garchomp", "mewtwo", "ditto",
-        "mew", "pidgey","magikarp ","rattata",
-        "tentacruel ","oshawott "
+        "mew", "pidgey", "magikarp", "rattata",
+        "tentacruel", "oshawott"
     };
     private final Carta[][] cartas;
     
@@ -46,7 +46,7 @@ public class Tablero {
         for (int i = 0; i < imagenes; i++) {
             String idPareja = "pareja_" + i;
             String nombre = Nombres_pokemon[i];
-            String rutaImagen = "/imagenes/" + nombre + ".png";
+            String rutaImagen = "/labpro2p3_juegomemoria/imagenes/" + nombre + ".png";
  
             if (i % 4 == 0) {
                 mazo.add(new CartaEspecial(idPareja, rutaImagen, nombre, 1));

@@ -51,10 +51,25 @@ public class PInicio extends JPanel implements PanelConstructor {
     }
 
     private void validarCampos() {
-        if (jugador1.getText().trim().isEmpty() || jugador2.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese los nombres de ambos jugadores.", "Campos vacíos", JOptionPane.WARNING_MESSAGE);
-        } else {
-            VisualManager.cambiarPanel(new PJuego(jugador1.getText().trim(), jugador2.getText().trim()));
+        try {
+            String nombre1 = jugador1.getText().trim();
+            String nombre2 = jugador2.getText().trim();
+
+            if (nombre1.isEmpty()) {
+                throw new IllegalArgumentException("Falta ingresar el nombre del Jugador 1.");
+            }
+
+            if (nombre2.isEmpty()) {
+                throw new IllegalArgumentException("Falta ingresar el nombre del Jugador 2.");
+            }
+
+            VisualManager.cambiarPanel(new PJuego(nombre1, nombre2));
+
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No se pudo iniciar la partida: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
