@@ -4,7 +4,7 @@
  */
 package labpro2p3_juegomemoria.control;//Jhoveth Moncada
 
-import labpro2p3_juegomemoria.modelo.Carta;
+import labpro2p3_juegomemoria.Carta;
 
 public interface LogicaJuego {
 
