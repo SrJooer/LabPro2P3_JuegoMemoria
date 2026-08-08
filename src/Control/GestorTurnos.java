@@ -1,4 +1,4 @@
-package labpro2p3_juegomemoria.control;
+package labpro2p3_juegomemoria.control;//Jhoveth MOncada
 
 public interface GestorTurnos{
     
