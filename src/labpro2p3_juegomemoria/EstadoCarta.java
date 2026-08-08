@@ -1,10 +1,12 @@
+//Leonardo Romero 22611318
+
 package labpro2p3_juegomemoria;
  
 
 public enum EstadoCarta {
-    BOCA_ABAJO,
+    ABAJO,
     DESCUBIERTA,
-    EMPAREJADA
+    ENPAREJA
 }
  
     

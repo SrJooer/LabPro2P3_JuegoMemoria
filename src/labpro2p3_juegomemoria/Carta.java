@@ -1,20 +1,20 @@
+//Leonardo Romero 22611318
 
 package labpro2p3_juegomemoria;
 
 public abstract class Carta {
 
-    // Identificador compartido por las dos cartas que forman una pareja.
     protected final String idPareja;
     protected final String imagen;
     protected EstadoCarta estado;
 
     protected Carta(String idPareja, String rutaImagen) {
         if (idPareja == null || idPareja.isBlank()) {
-            throw new IllegalArgumentException("El identificador de pareja no puede estar vacío.");
+            throw new IllegalArgumentException("El id de las parejas necesita un valor");
         }
         this.idPareja = idPareja;
         this.imagen = rutaImagen;
-        this.estado = EstadoCarta.BOCA_ABAJO;
+        this.estado = EstadoCarta.ABAJO;
     }
 
     public abstract void mostrar();
@@ -22,11 +22,11 @@ public abstract class Carta {
     public abstract void ocultar();
 
     public boolean estaDescubierta() {
-        return estado == EstadoCarta.DESCUBIERTA || estado == EstadoCarta.EMPAREJADA;
+        return estado == EstadoCarta.DESCUBIERTA || estado == EstadoCarta.ENPAREJA;
     }
 
     public void marcarEnPareja() {
-        this.estado = EstadoCarta.EMPAREJADA;
+        this.estado = EstadoCarta.ENPAREJA;
     }
 
     public boolean esParejaDe(Carta otra) {
@@ -50,6 +50,6 @@ public abstract class Carta {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{idPareja='" + idPareja + "', estado=" + estado + "}";
+        return getClass().getSimpleName() + "idPareja= " + idPareja + "  estado=" + estado;
     }
 }

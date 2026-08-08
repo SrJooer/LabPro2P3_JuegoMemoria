@@ -1,13 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//Leonardo Romero 22611318
+
 package labpro2p3_juegomemoria;
 
-/**
- *
- * @author Abril
- */
-public class CartaPokemon {
+public class CartaPokemon extends Carta{
+    private final String nombrePokemon;
     
-}
+    public CartaPokemon(String idPareja, String Imagen, String nombrePokemon){
+        super(idPareja, Imagen);
+        if(nombrePokemon==null||nombrePokemon.isBlank()){
+            throw new IllegalArgumentException("El nombre del Pokemon necesita un valor");
+        }
+        this.nombrePokemon = nombrePokemon;
+    }
+    
+    @Override
+    public void mostrar(){
+    if (estado != EstadoCarta.ENPAREJA){
+        estado=EstadoCarta.DESCUBIERTA;
+    }
+    }
+    @Override
+    public void ocultar(){
+        if(estado != EstadoCarta.ENPAREJA){
+            estado= EstadoCarta.ABAJO;
+        }
+    }
+        public String getnombrePokemon(){
+            return nombrePokemon;
+        }
+    }
+
