@@ -1,4 +1,4 @@
-package labpro2p3_juegomemoria.control;
+package labpro2p3_juegomemoria.control;//Jhoveth MOncada
 
 import labpro2p3_juegomemoria.modelo.Carta;
 import labpro2p3_juegomemoria.modelo.Jugador;
